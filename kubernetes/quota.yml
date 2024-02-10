@@ -6,7 +6,10 @@ metadata:
 spec:
   hard:
     pods: "10"
-    requests.cpu: "1"
-    requests.memory: 1Gi
-    limits.cpu: "2"
-    limits.memory: 2Gi
+    # Add sections for volume-permissions container resources
+    limits.cpu: "2"  # Adjust values based on your needs
+    limits.memory: "4Gi"  # Adjust values based on your needs
+    requests.cpu: "1"  # Adjust values based on your needs
+    requests.memory: "2Gi"  # Adjust values based on your needs
+    # Existing limits.cpu and limits.memory for other resources
+  # Existing requests.cpu and requests.memory for other resources

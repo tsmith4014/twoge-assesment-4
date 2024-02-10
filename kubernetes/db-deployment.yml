@@ -34,3 +34,10 @@ spec:
               key: DB_DATABASE
         ports:
         - containerPort: 5432
+        resources:  # Add this section
+          requests:
+            cpu: "100m"
+            memory: "100Mi"
+          limits:
+            cpu: "200m"
+            memory: "200Mi"
