@@ -6,7 +6,7 @@ on:
       - eks-version
 
 env:
-  DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
   AWS_REGION: 'us-east-1'
   K8S_NAMESPACE: 'vega-namespace'
