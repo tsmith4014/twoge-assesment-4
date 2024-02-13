@@ -55,11 +55,6 @@ jobs:
           kubeconfig: ${{ secrets.KUBECONFIG }}
       - name: deploy to eks
         run: |
-          kubectl apply -f twoge-assesment-4/kubernetes/db-deployment.yml -n vega-namespace
-          kubectl apply -f twoge-assesment-4/kubernetes/db-service.yml -n vega-namespace
+          kubectl apply -f kubernetes/. -n vega-namespace
       - name: Delay for 15
         run: sleep 15
-      - name: Deploy EKS
-        run: |
-          kubectl apply -f twoge-assesment-4/kubernetes/app-deployment.yml -n vega-namespace
-          kubectl apply -f twoge-assesment-4/kubernetes/app-service.yml -n vega-namespace
