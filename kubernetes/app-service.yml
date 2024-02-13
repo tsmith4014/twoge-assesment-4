@@ -10,4 +10,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
-  type: ClusterIP
+  type: ClusterIP #ClusterIP if you want to expose the service only within the cluster and NodePort if you want to expose the service outside the cluster on MiniKube.  If using a cloud provider, you can use LoadBalancer.

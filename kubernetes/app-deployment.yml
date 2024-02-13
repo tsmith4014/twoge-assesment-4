@@ -50,7 +50,7 @@ spec:
             port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
-        resources:  # Add this section
+        resources:
           requests:
             cpu: "100m"
             memory: "100Mi"
