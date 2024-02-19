@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
       - name: twoge-kube
-        image: tsmith4014/twoge-kube
+        image: tsmith4014/twoge-kube:arm-mac 
         ports:
-        - containerPort: 8080
+        - containerPort: 8080 
         env:
         - name: DB_USER
           valueFrom:

@@ -1,0 +1,159 @@
+# Apply the database secret
+kubectl apply -f db-secret.yml
+
+# Apply the database configmap
+kubectl apply -f db-configmap.yml
+
+# Apply the database deployment
+kubectl apply -f db-deployment.yml
+
+# Apply the database service
+kubectl apply -f db-service.yml
+
+# Apply the application deployment
+kubectl apply -f app-deployment.yml
+
+# Apply the application service
+kubectl apply -f app-service.yml
+
+# Check the status of the services
+kubectl get services -n vega-namespace
+
+# Check the status of the deployments
+kubectl get deployments -n vega-namespace
+
+# Update the application service to change the service type to ClusterIP
+# (This step assumes you've updated the app-service.yml file to set 'type: ClusterIP')
+kubectl apply -f app-service.yml
+
+# Check the status of the services again to confirm the change
+kubectl get services -n vega-namespace
+
+# Forward a local port to the application service for testing
+kubectl port-forward svc/twoge-kube-service 8080:80 -n vega-namespace 
+ 
+ 
+This block of commands represents the steps you've taken to deploy your application and its database to a Kubernetes cluster, and then update the application service to change its type from LoadBalancer to ClusterIP. After the last command, you can access your application at http://localhost:8080 for testing.
+
+#################history below#######################
+
+
+ 518  docker-compose build
+  519  docker-compose up
+  520  docker-compose down
+second terminal commands below
+docker buildx build --platform linux/amd64,linux/arm64 -t tsmith4014/twoge-kube --push .
+  507  history
+  508  docker buildx build --platform linux/amd64,linux/arm64 -t tsmith4014/twoge-kube --push .
+  509  ls
+  510  cd ..
+  511  ls
+  512  cd ..
+  513  ls
+  514  cd kubernetes/
+  515  ls
+  516  kubectl apply -f db-configmap.yml
+  517  kubectl apply -f app-deployment.yml
+  518  kubectl apply -f app-service.yml
+  519  kubectl get pods
+  520  kubectl get pods
+  521  kubectl get services
+  522  kubectl logs twoge-kube-deployment-67b9cc97b6-rfz76
+  523  kubectl get services
+  524  kubectl get services
+  525  kubectl logs twoge-kube-deployment-67b9cc97b6-rfz76
+  526  kubectl apply -f db-deployment.yml
+  527  kubectl apply -f db-service.yml
+  528  kubectl get services
+  529  kubectl get services
+  530  kubectl get pods
+  531  kubectl get services
+  532  kubectl logs twoge-kube-deployment-67b9cc97b6-rfz76
+  533  kubectl get services
+  534  kubectl get pods
+  535  kubectl delete pods -l app=twoge-kube
+  536  kubectl get pods
+  537  kubectl get pods
+  538  kubectl get services
+  539  kubectl logs db-6958795995-mbzw9
+  540  kubectl get pods
+  541    kubectl logs twoge-kube-deployment-67b9cc97b6-zwm4j
+  542  minikube service twoge-kube-service --url
+  543  echo -n 'zxPaZx2LvYu' | base64
+  544  # Create a namespace
+  545  kubectl create namespace vega-namespace
+  546  # Create a resource quota
+  547  kubectl create quota my-quota --hard=pods=10,services=5 --namespace=vega-namespace
+  548  ls
+  549  kubectl apply -f db-secret.yml
+  550  kubectl apply -f db-configmap.yml
+  551  kubectl apply -f db-deployment.yml
+  552  kubectl apply -f db-service.yml
+  553  kubectl apply -f app-deployment.yml
+  554  kubectl apply -f app-service.yml
+  555  history
+  556  kubectl get deployments -n vega-namespace
+  557  kubectl get services -n vega-namespace
+  558* kubectl logs deployment/ -n vega-namespace
+  559  kubectl logs deployment/twoge-kube-deployment -n vega-namespace
+  560  minikube service twoge-kube-service -n vega-namespace
+  561  kubectl logs deployment/app -n vega-namespace
+  562  kubectl logs deployment/twoge-kube-deployment -n vega-namespace
+  563  kubectl get deployments -n vega-namespace
+  564  kubectl get services -n vega-namespace
+  565  kubectl get services -n vega-namespace
+  566  kubectl apply -f app-service.yml
+  567  kubectl get services -n vega-namespace
+  568  kubectl get deployments -n vega-namespace
+  569  kubectl logs deployment/twoge-kube-deployment -n vega-namespace
+  570  kubectl port-forward svc/twoge-kube-service 8080:80 -n vega-namespace
+  571  history
+
+
+    605  kubectl get pv db-pv
+  606  kubectl get pvc db-pvc
+  607  kubectl describe pvc db-pvc
+  608  kubectl get storageclass
+  609  kubectl apply -f .
+  610  kubectl delete storageclass ebs-sc
+
+  docker buildx build --platform linux/amd64,linux/arm64 -t tsmith4014/twoge-kube:arm-mac --push .
+
+kubectl get nodes
+kubectl describe node ip-192-168-22-63.ec2.internal
+
+kubectl apply -f .
+kubectl get pods
+
+kubectl get services -n vega-namespace
+kubectl get deployments -n vega-namespace
+
+# popup of the service/app, easy.
+minikube service twoge-kube-service -n vega-namespace 
+
+kubectl logs <twoge-kube-deployment-57c445fd8d-tmsv9> -n vega-namespace
+
+# delete pods/deployments to check persistance
+kubectl delete -f db-deployment.yml -f app-deployment.yml
+kubectl delete pod db-ccc6586dd-4qc89
+kubectl delete pod twoge-kube-deployment-6988894985-vkppp
+
+echo -n 'your-password' | base64
+
+ kubectl delete deployment db -n vega-namespace
+ kubectl delete deployment twoge-kube-deployment -n vega-namespace
+
+
+  564  kubectl apply -f .
+  565  kubectl get deployments -n vega-namespace
+  566  kubectl get pods -n vega-namespace
+  567  kubectl describe pod twoge-kube-deployment-57c445fd8d-5jqb8
+  568  kubectl describe pod twoge-kube-deployment-57c445fd8d-5jqb8
+  569  kubectl describe pod twoge-kube-deployment-57c445fd8d-5jqb8 -n vega-namespace
+  570  kubectl get pods -n vega-namespace
+  571  kubectl logs twoge-kube-deployment-57c445fd8d-5jqb8 -n vega-namespace
+  572  minikube service twoge-kube-service -n vega-namespace 
+
+
+kubectl port-forward svc/twoge-kube-service 8080:80 -n vega-namespace
+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
